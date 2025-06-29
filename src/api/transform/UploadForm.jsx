@@ -47,7 +47,7 @@ export default function UploadForm() {
 
     try {
       const res = await axios.post(
-        'http://localhost:8000/api/transform/upload',
+        `${API}/api/transform/upload`,
         fd,
         { responseType: 'blob' }
       );
