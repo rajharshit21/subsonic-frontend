@@ -3,7 +3,7 @@ import PageLayout from '../../layout/PageLayout';
 import UploadForm from '../../api/transform/UploadForm';
 import TTSForm from '../../api/transform/TTSForm';
 import LiveMicStream from '../forms/LiveMicStream';
-import CTAButtons from '../UI/CTAButtons';
+import CTAButtons from '../UI/CTAbuttons';
 
 function App() {
   const [rating, setRating] = useState('');
