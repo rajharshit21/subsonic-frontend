@@ -1,7 +1,7 @@
 // Location: src/components/forms/LiveMicStream.jsx
 
 import React, { useRef, useState } from 'react';
-import WaveformPlayer from '../UI/WaveformPlayer.';
+import WaveformPlayer from '../UI/WaveformPlayer';
 import { Mic, MicOff } from 'lucide-react';
 
 const LiveMicStream = () => {
