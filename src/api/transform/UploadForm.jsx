@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
-import WaveformPlayer from '../../components/UI/WaveformPlayer.';
+import WaveformPlayer from '../../components/UI/WaveformPlayer';
 const API = import.meta.env.VITE_API_BASE_URL;
 export default function UploadForm() {
   const [file, setFile] = useState(null);
