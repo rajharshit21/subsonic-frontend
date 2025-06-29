@@ -1,0 +1,47 @@
+/* Root container */
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  background-color: transparent;
+}
+
+/* Optional: Logo styling */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  transition: filter 300ms ease-in-out;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 1.5em #6366f1aa);
+}
+
+/* Fun Logo Animation */
+@keyframes logo-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .spin-logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Custom card wrapper */
+.card {
+  padding: 2em;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(128, 43, 177, 0.15);
+  background-color: #1f1b2e;
+  color: white;
+}
+
+/* Docs or hints */
+.read-the-docs {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.9rem;
+}
