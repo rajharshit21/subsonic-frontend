@@ -12,10 +12,7 @@ export default function TTSForm() {
   const audioRef = useRef(null);
 
   const API_BASE = import.meta.env.VITE_TTS_BACKEND || 'https://xxxxxx.ngrok.io';
-const res = await fetch(`${API}/api/transform/upload`, {
-  method: "POST",
-  body: formData,
-});
+
   
   useEffect(() => {
     axios.get(`${API_BASE}/tts/voices`)
