@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import WaveformPlayer from '../UI/WaveformPlayer.';
+import WaveformPlayer from '../UI/WaveformPlayer';
 import { UploadCloud } from 'lucide-react';
 
 
