@@ -1,6 +1,6 @@
 // src/api/api.js
 import axios from 'axios';
-
+const API = import.meta.env.VITE_API_BASE_URL;
 const BASE_URL = "http://localhost:8000"; // in your api.js or axios config
 
 
