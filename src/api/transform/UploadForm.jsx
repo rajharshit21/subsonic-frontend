@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import WaveformPlayer from '../../components/UI/WaveformPlayer';
-const API = import.meta.env.VITE_API_BASE_URL;
+export const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export default function UploadForm() {
   const [file, setFile] = useState(null);
   const [pitch, setPitch] = useState(0);
@@ -33,38 +33,39 @@ export default function UploadForm() {
   };
 
   const handleSubmit = async () => {
-    if (!file) return;
-    setLoading(true);
+  if (!file) return;
+  setLoading(true);
 
-    const fd = new FormData();
-    fd.append('file', file);
-    fd.append('pitch_shift', pitch);
-    fd.append('time_stretch', speed);
-    fd.append('clarity', String(clarity));
-    fd.append('denoise', String(denoise));
-    fd.append('autotune', String(autotune));
-    fd.append('style', style);
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('pitch_shift', pitch);
+  fd.append('time_stretch', speed);
+  fd.append('clarity', String(clarity));
+  fd.append('denoise', String(denoise));
+  fd.append('autotune', String(autotune));
+  fd.append('style', style);
+console.log("Calling:", `${BASE_URL}/api/transform/upload`);
+  try {
+    const res = await axios.post(
+      `${BASE_URL}/api/transform/upload`, // ✅ CORRECTED URL and variable
+      fd,
+      { responseType: 'blob' }
+    );
 
-    try {
-      const res = await axios.post(
-        `${API}/api/transform/upload`,
-        fd,
-        { responseType: 'blob' }
-      );
-      const blob = res.data;
-      const url = URL.createObjectURL(blob);
-      setProcessedUrl(url);
+    const blob = res.data;
+    const url = URL.createObjectURL(blob);
+    setProcessedUrl(url);
 
-      const audioCtx = new AudioContext();
-      const buffer = await audioCtx.decodeAudioData(await blob.arrayBuffer());
-      processedWaveformRef.current?.draw(buffer);
-    } catch (err) {
-      console.error(err);
-      alert('Processing failed.');
-    } finally {
-      setLoading(false);
-    }
-  };
+    const audioCtx = new AudioContext();
+    const buffer = await audioCtx.decodeAudioData(await blob.arrayBuffer());
+    processedWaveformRef.current?.draw(buffer);
+  } catch (err) {
+    console.error(err);
+    alert('Processing failed.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="p-6 sm:p-8 bg-[#2D283E] text-[#D1D7E0] rounded-2xl shadow-xl max-w-3xl mx-auto mt-16 space-y-6">
