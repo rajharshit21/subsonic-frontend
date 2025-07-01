@@ -44,9 +44,11 @@ export default function UploadForm() {
   fd.append('denoise', String(denoise));
   fd.append('autotune', String(autotune));
   fd.append('style', style);
-const res = await axios.post(`${BASE_URL}/api/transform/upload`, fd, {
-  responseType: 'blob',
-});
+
+  try {
+    const res = await axios.post(`${BASE_URL}/api/transform/upload`, fd, {
+      responseType: 'blob',
+    });
 
     const blob = res.data;
     const url = URL.createObjectURL(blob);
@@ -62,6 +64,7 @@ const res = await axios.post(`${BASE_URL}/api/transform/upload`, fd, {
     setLoading(false);
   }
 };
+
 
   return (
     <div className="p-6 sm:p-8 bg-[#2D283E] text-[#D1D7E0] rounded-2xl shadow-xl max-w-3xl mx-auto mt-16 space-y-6">
