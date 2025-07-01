@@ -47,7 +47,7 @@ export default function UploadForm() {
 console.log("Calling:", `${BASE_URL}/api/transform/upload`);
   try {
     const res = await axios.post(
-      `${BASE_URL}/api/transform/upload`, // ✅ CORRECTED URL and variable
+      `${BASE_URL}`, // ✅ CORRECTED URL and variable
       fd,
       { responseType: 'blob' }
     );
