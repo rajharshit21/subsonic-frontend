@@ -44,13 +44,9 @@ export default function UploadForm() {
   fd.append('denoise', String(denoise));
   fd.append('autotune', String(autotune));
   fd.append('style', style);
-console.log("Calling:", `${BASE_URL}/api/transform/upload`);
-  try {
-    const res = await axios.post(
-      `${BASE_URL}`, // ✅ CORRECTED URL and variable
-      fd,
-      { responseType: 'blob' }
-    );
+const res = await axios.post(`${BASE_URL}/api/transform/upload`, fd, {
+  responseType: 'blob',
+});
 
     const blob = res.data;
     const url = URL.createObjectURL(blob);
