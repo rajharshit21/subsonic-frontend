@@ -1,7 +1,7 @@
 // src/api/api.js
 import axios from 'axios';
 const API = import.meta.env.VITE_API_BASE_URL;
-const BASE_URL = "https://subsonic-jlma.onrender.com"; // in your api.js or axios config
+ // in your api.js or axios config
 
 
 export const uploadAudio = async (formData) => {
