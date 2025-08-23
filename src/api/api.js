@@ -1,12 +1,12 @@
 // src/api/api.js
 import axios from 'axios';
 const API = import.meta.env.VITE_API_BASE_URL;
-const BASE_URL = "http://localhost:8000"; // in your api.js or axios config
+const BASE_URL = "https://subsonic-jlma.onrender.com"; // in your api.js or axios config
 
 
 export const uploadAudio = async (formData) => {
   try {
-    const response = await axios.post(`${BASE_URL}/api/transform`, formData, {
+    const response = await axios.post(`${BASE_URL}/api/transform/upload`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -17,6 +17,7 @@ export const uploadAudio = async (formData) => {
     throw error;
   }
 };
+
 
 export const applyFilter = async (formData) => {
   try {
